@@ -1,6 +1,7 @@
 package com.musahundur.javaretrofit.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CryptoModel> cryptoModels;
     private String BASE_URL = "https://api.nomics.com/v1/";
     Retrofit retrofit;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //https://api.nomics.com/v1/prices?key=a1b939b70454d670141e9cdf06a09de1ce2fcfb9
+
+        recyclerView = findViewById(R.id.recyclerView);
 
         //Retrofit & JSON
 
