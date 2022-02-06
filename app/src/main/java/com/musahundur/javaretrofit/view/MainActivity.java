@@ -1,6 +1,7 @@
 package com.musahundur.javaretrofit.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.musahundur.javaretrofit.R;
+import com.musahundur.javaretrofit.adapter.CryptoAdapter;
 import com.musahundur.javaretrofit.model.CryptoModel;
 import com.musahundur.javaretrofit.service.CryptoAPI;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String BASE_URL = "https://api.nomics.com/v1/";
     Retrofit retrofit;
     RecyclerView recyclerView;
+    CryptoAdapter cryptoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +65,15 @@ public class MainActivity extends AppCompatActivity {
                     List<CryptoModel> responseList = response.body();
                     cryptoModels = new ArrayList<>(responseList);
 
-                    for (CryptoModel cryptoModel : cryptoModels){
+                    //RecyclerView
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    cryptoAdapter = new CryptoAdapter(cryptoModels);
+                    recyclerView.setAdapter(cryptoAdapter);
+
+                    /*for (CryptoModel cryptoModel : cryptoModels){
                         System.out.println(cryptoModel.currency);
                         System.out.println(cryptoModel.price);
-                    }
+                    }*/
                 }
             }
 
