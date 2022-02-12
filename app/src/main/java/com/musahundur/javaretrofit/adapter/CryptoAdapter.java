@@ -18,7 +18,7 @@ public class CryptoAdapter extends RecyclerView.Adapter<CryptoAdapter.CryptoHold
 
     private ArrayList<CryptoModel> cryptoModelsAdapterArray;
 
-    private String[] colors = {"#a3ff00", "#ff33aa","#b4a7d6","#a4c2f4","#8ee5ee","#cd950c","#f5f5f5","#f47932"};
+    private String[] colors = {"#a3ff00", "#ff33aa","#b4a7d6","#a4c2f4","#8ee5ee","#cd950c","#f55515","#f47932"};
 
     public CryptoAdapter(ArrayList<CryptoModel> cryptoModelsAdapterArray){
         this.cryptoModelsAdapterArray = cryptoModelsAdapterArray;
